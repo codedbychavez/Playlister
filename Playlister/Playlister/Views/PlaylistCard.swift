@@ -8,8 +8,32 @@
 import Foundation
 import SwiftUI
 
+import ConfigCat
+
+let client = ConfigCatClient(
+    sdkKey: "vKraCIIHVEGNyGhSumjxAQ/xcKJxp4KU0OyRVQsI8wx0w",
+    refreshMode: PollingModes.autoPoll(autoPollIntervalInSeconds: 15)
+)
+
+class Features: ObservableObject {
+   @Published var canShowUpvote = false
+    init() {
+        client.getValue(for: "canshowupvote", defaultValue: false) { isMyAwesomeFeatureEnabled in
+            if isMyAwesomeFeatureEnabled { 
+                self.canShowUpvote = true
+            }
+        }
+       
+    }
+    
+
+}
 struct PlaylistCard: View {
     var playlist: Playlist
+    
+//    @ObservedObject var appFeature: Feature
+    @StateObject var appFeatures = Features()
+    
     
     var body: some View {
         VStack{
@@ -25,13 +49,16 @@ struct PlaylistCard: View {
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                 Spacer()
-                Button("Upvote") {
-                    
+                if appFeatures.canShowUpvote {
+                    Button("Upvote") {
+
+                    }
+                    .buttonStyle(.bordered)
+                    .foregroundColor(.white)
+                    .background(Color.red)
+                    .cornerRadius(8)
                 }
-                .buttonStyle(.bordered)
-                .foregroundColor(.white)
-                .background(Color.red)
-                .cornerRadius(8)
+        
             }
         
         .padding()

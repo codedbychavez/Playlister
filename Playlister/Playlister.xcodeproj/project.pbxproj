@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A24F53628F44B7800ABA43D /* ConfigCat in Frameworks */ = {isa = PBXBuildFile; productRef = 1A24F53528F44B7800ABA43D /* ConfigCat */; };
 		1AEA3C8628F23788009D8076 /* PlaylisterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEA3C8528F23788009D8076 /* PlaylisterApp.swift */; };
 		1AEA3C8828F23788009D8076 /* PlaylistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEA3C8728F23788009D8076 /* PlaylistsView.swift */; };
 		1AEA3C8A28F23789009D8076 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AEA3C8928F23789009D8076 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A24F53628F44B7800ABA43D /* ConfigCat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +167,9 @@
 			dependencies = (
 			);
 			name = Playlister;
+			packageProductDependencies = (
+				1A24F53528F44B7800ABA43D /* ConfigCat */,
+			);
 			productName = Playlister;
 			productReference = 1AEA3C8228F23788009D8076 /* Playlister.app */;
 			productType = "com.apple.product-type.application";
@@ -237,6 +242,9 @@
 				Base,
 			);
 			mainGroup = 1AEA3C7928F23788009D8076;
+			packageReferences = (
+				1A24F53428F44B7800ABA43D /* XCRemoteSwiftPackageReference "swift-sdk" */,
+			);
 			productRefGroup = 1AEA3C8328F23788009D8076 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -601,6 +609,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1A24F53428F44B7800ABA43D /* XCRemoteSwiftPackageReference "swift-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/configcat/swift-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1A24F53528F44B7800ABA43D /* ConfigCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A24F53428F44B7800ABA43D /* XCRemoteSwiftPackageReference "swift-sdk" */;
+			productName = ConfigCat;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1AEA3C7A28F23788009D8076 /* Project object */;
 }
